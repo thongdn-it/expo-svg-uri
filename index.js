@@ -334,10 +334,10 @@ class SvgUri extends Component {
     return componentAtts;
   }
 
-  inspectNode(node) {
+  inspectNode(node, index = 0) {
     // Only process accepted elements
     if (!ACCEPTED_SVG_ELEMENTS.includes(node.nodeName)) {
-      return <View />;
+      return <View key={`${node.nodeName}-${index}`} />;
     }
 
     // Process the xml node
@@ -351,7 +351,7 @@ class SvgUri extends Component {
         if (isTextValue) {
           arrayElements.push(node.childNodes[i].nodeValue);
         } else {
-          const nodo = this.inspectNode(node.childNodes[i]);
+          const nodo = this.inspectNode(node.childNodes[i], i);
           if (nodo != null) {
             arrayElements.push(nodo);
           }
