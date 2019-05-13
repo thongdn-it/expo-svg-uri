@@ -1,6 +1,6 @@
 {
   "name": "expo-svg-uri",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Render an SVG Image",
   "main": "index.js",
   "repository": {
