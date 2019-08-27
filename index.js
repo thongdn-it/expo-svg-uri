@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import xmldom from "xmldom";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
-import { Svg } from "expo";
-const {
+import Svg, {
   Circle,
   Ellipse,
   G,
@@ -20,7 +19,7 @@ const {
   TSpan,
   Defs,
   Stop
-} = Svg;
+} from "react-native-svg";
 
 import * as utils from "./utils";
 
