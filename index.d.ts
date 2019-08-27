@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageURISource } from "react-native";
+import { ImageURISource, StyleProp, ViewStyle } from "react-native";
 
 interface SvgUriProps {
   /**
@@ -39,6 +39,11 @@ interface SvgUriProps {
    * Fill the entire svg element with same color
    */
   fillAll?: boolean;
+
+  /**
+   * Style of the view that surrounds the svg.
+   */
+  style?: StyleProp<ViewStyle>;
 }
 
 export default class SvgUri extends Component<SvgUriProps, {}> {}
