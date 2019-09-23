@@ -6,6 +6,10 @@ Render SVG images in Expo app from an URL or a static file
 
 ```bash
 npm install --save expo-svg-uri
+
+OR
+
+yarn add expo-svg-uri
 ```
 
 ## Props
