@@ -18,7 +18,7 @@ import Svg, {
   Text,
   TSpan,
   Defs,
-  Stop
+  Stop,
 } from "react-native-svg";
 
 import * as utils from "./utils";
@@ -38,7 +38,7 @@ const ACCEPTED_SVG_ELEMENTS = [
   "polygon",
   "polyline",
   "text",
-  "tspan"
+  "tspan",
 ];
 
 // Attributes from SVG elements that are mapped directly.
@@ -78,7 +78,7 @@ const COMMON_ATTS = [
   "originX",
   "originY",
   "transform",
-  "clipPath"
+  "clipPath",
 ];
 
 let ind = 0;
@@ -86,7 +86,7 @@ let ind = 0;
 function fixYPosition(y, node) {
   if (node.attributes) {
     const fontSizeAttr = Object.keys(node.attributes).find(
-      a => node.attributes[a].name === "font-size"
+      (a) => node.attributes[a].name === "font-size"
     );
     if (fontSizeAttr) {
       return (
@@ -120,11 +120,11 @@ class SvgUri extends Component {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.isComponentMounted = true;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.source) {
       const source = resolveAssetSource(nextProps.source) || {};
       const oldSource = resolveAssetSource(this.props.source) || {};
@@ -312,7 +312,7 @@ class SvgUri extends Component {
         utils.transformStyle({
           nodeName,
           nodeValue,
-          fillProp: this.state.fill
+          fillProp: this.state.fill,
         })
       );
     });
@@ -394,7 +394,7 @@ SvgUri.propTypes = {
   source: PropTypes.any,
   fill: PropTypes.string,
   onLoad: PropTypes.func,
-  fillAll: PropTypes.bool
+  fillAll: PropTypes.bool,
 };
 
 module.exports = SvgUri;
