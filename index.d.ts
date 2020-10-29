@@ -29,6 +29,11 @@ interface SvgUriProps {
    * Fill color for the svg object
    */
   fill?: string;
+  
+  /**
+   * Stroke color for the svg object
+   */
+  stroke?: string;
 
   /**
    * Invoked when load completes successfully.

@@ -104,7 +104,7 @@ class SvgUri extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { fill: props.fill, svgXmlData: props.svgXmlData };
+    this.state = { fill: props.fill, svgXmlData: props.svgXmlData, stroke: props.stroke };
 
     this.createSVGElement = this.createSVGElement.bind(this);
     this.obtainComponentAtts = this.obtainComponentAtts.bind(this);
@@ -322,10 +322,28 @@ class SvgUri extends Component {
       .map(utils.removePixelsFromNodeValue)
       .filter(utils.getEnabledAttributes(enabledAttributes.concat(COMMON_ATTS)))
       .reduce((acc, { nodeName, nodeValue }) => {
-        acc[nodeName] =
-          this.state.fill && nodeName === "fill" && nodeValue !== "none"
-            ? this.state.fill
-            : nodeValue;
+        if(nodeValue === "none") {
+          acc[nodeName] = nodeValue		
+        } else {
+          switch(nodeName) {
+            case "fill":
+              acc[nodeName] =
+                this.state.fill
+                  ? this.state.fill
+                  : nodeValue;
+              break
+            case "stroke":
+              acc[nodeName] =
+                this.state.stroke
+                  ? this.state.stroke
+                  : nodeValue;
+              break
+            default:
+              acc[nodeName] = nodeValue
+              break
+		  }
+        }
+
         return acc;
       }, {});
     Object.assign(componentAtts, styleAtts);
@@ -393,6 +411,7 @@ SvgUri.propTypes = {
   svgXmlData: PropTypes.string,
   source: PropTypes.any,
   fill: PropTypes.string,
+  stroke: PropTypes.string,
   onLoad: PropTypes.func,
   fillAll: PropTypes.bool,
 };
