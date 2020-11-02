@@ -19,6 +19,7 @@ yarn add expo-svg-uri
 | `source`     | `ImageSource` |                                              | Same kind of `source` prop that `<Image />` component has |
 | `svgXmlData` | `String`      |                                              | You can pass the SVG as String directly                   |
 | `fill`       | `Color`       |                                              | Overrides all fill attributes of the svg file             |
+| `stroke`     | `Color`       |                                              | Overrides all stroke attributes of the svg file           |
 | `fillAll`    | `Boolean`     | Adds the fill color to the entire svg object |
 
 ## Usage
