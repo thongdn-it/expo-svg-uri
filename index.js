@@ -140,6 +140,10 @@ class SvgUri extends Component {
     if (nextProps.fill !== this.props.fill) {
       this.setState({ fill: nextProps.fill });
     }
+
+    if (nextProps.stroke !== this.props.stroke) {
+      this.setState({ stroke: nextProps.stroke });
+    }
   }
 
   componentWillUnmount() {
