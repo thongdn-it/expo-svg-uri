@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, ViewPropTypes } from "react-native";
+import { View } from "react-native";
 import PropTypes from "prop-types";
 import xmldom from "xmldom";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
@@ -409,7 +409,7 @@ class SvgUri extends Component {
 }
 
 SvgUri.propTypes = {
-  style: ViewPropTypes.style,
+  style: PropTypes.shape({style: PropTypes.any}),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   svgXmlData: PropTypes.string,
